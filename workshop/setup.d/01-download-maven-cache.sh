@@ -7,4 +7,4 @@ set -x
 # be copied into an image registry in the same cluster as Educates is
 # running, speeding up the download.
 
-time imgpkg pull -i $MAVEN_CACHE_IMAGE -o $HOME/.m2
+time imgpkg pull -i $MAVEN_CACHE_IMAGE -o $HOME/.m2 &
