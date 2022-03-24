@@ -1,0 +1,11 @@
+name: Spring Boot on Kubernetes
+
+modules:
+    activate:
+        - workshop-overview
+        - setup-environment
+        - exercises/01-creating-an-application
+        - exercises/02-building-the-application
+        - exercises/03-containerize-application
+        - exercises/04-deploying-to-kubernetes
+        - workshop-summary

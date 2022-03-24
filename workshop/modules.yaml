@@ -1,0 +1,18 @@
+modules:
+  workshop-overview:
+    name: Workshop Overview
+    exit_sign: Setup Environment
+  setup-environment:
+    name: Setup Environment
+    exit_sign: Start Workshop
+  exercises/01-creating-an-application:
+    name: Creating an Application
+  exercises/02-building-the-application:
+    name: Building the Application
+  exercises/03-containerize-application:
+    name: Containerize the Application
+  exercises/04-deploying-to-kubernetes:
+    name: Deploying to Kubernetes
+  workshop-summary:
+    name: Workshop Summary
+    exit_sign: Finish Workshop

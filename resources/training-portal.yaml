@@ -1,0 +1,15 @@
+apiVersion: training.eduk8s.io/v1alpha1
+kind: TrainingPortal
+metadata:
+  name: lab-spring-boot-on-k8s
+spec:
+  portal:
+    registration:
+      type: anonymous
+    updates:
+      workshop: true
+  workshops:
+  - name: lab-spring-boot-on-k8s
+    capacity: 1
+    expires: 60m
+    orphaned: 5m
