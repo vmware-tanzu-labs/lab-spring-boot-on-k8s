@@ -1,0 +1,36 @@
+name: Create Maven Cache
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-maven-cache:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Install imgpkg
+        shell: bash
+        run: |
+          wget -nv -O- https://github.com/vmware-tanzu/carvel-imgpkg/releases/download/v0.27.0/imgpkg-linux-amd64 > /tmp/imgpkg
+          chmod 755 /tmp/imgpkg
+
+      - name: Download Spring Boot application
+        shell: bash
+        run: |
+          mkdir -p demo
+          curl --silent --fail https://start.spring.io/starter.tgz -d dependencies=webflux,actuator | tar -C demo -xzvf -
+
+      - name: Generate dependencies
+        shell: bash
+        run: |
+          (cd demo && ./mvnw dependency:go-offline)
+
+      - name: Build and publish
+        shell: bash
+        run: |
+          /tmp/imgpkg push -i ghcr.io/${{github.repository}}-maven:latest -f $HOME/.m2 --registry-username=${{github.actor}} --registry-password=${{secrets.GITHUB_TOKEN}}
