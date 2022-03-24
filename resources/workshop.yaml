@@ -34,6 +34,9 @@ spec:
       protocol: http
       host: initializr.$(workshop_namespace).svc.cluster.local
       port: 8080
+    env:
+      - name: MAVEN_CACHE_IMAGE
+        value: ghcr.io/vmware-tanzu-labs/lab-spring-boot-on-k8s-maven:latest
   environment:
     objects:
     - apiVersion: apps/v1
