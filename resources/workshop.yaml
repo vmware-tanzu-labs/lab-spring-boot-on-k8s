@@ -7,7 +7,7 @@ spec:
   description: Introduction to Spring Boot on Kubernetes
   content:
     image: jdk11-environment:*
-    files: imgpkg+http://registry.eduk8s.svc.cluster.local:5001/lab-spring-boot-on-k8s-files:latest
+    files: imgpkg+http://registry.default.svc.cluster.local:5001/lab-spring-boot-on-k8s-files:latest
   session:
     namespaces:
       budget: large
