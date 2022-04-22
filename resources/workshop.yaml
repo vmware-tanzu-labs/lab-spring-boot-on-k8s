@@ -37,7 +37,7 @@ spec:
         enabled: true
     dashboards:
     - name: Initializr
-      url: $(ingress_protocol)://$(session_namespace)-initializr.$(ingress_domain)
+      url: $(ingress_protocol)://initializr-$(session_namespace).$(ingress_domain)
     ingresses:
     - name: initializr
       protocol: http
