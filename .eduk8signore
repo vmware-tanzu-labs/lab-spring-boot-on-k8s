@@ -1,9 +1,0 @@
-./.dockerignore
-./.github
-./.gitignore
-./Dockerfile
-./Makefile
-./LICENSE
-./README.md
-./resources
-./exercises/.gitkeep

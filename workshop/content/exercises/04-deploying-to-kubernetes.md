@@ -46,19 +46,20 @@ command: kubectl rollout status deployment/demo
 To see all the resources which were created, run:
 
 ```terminal:execute
-command: kubectl get all
+command: kubectl get deployments,replicasets,pods
 ```
 
 The output should be similar to:
 
 ```
-b8fccd6f-xww5p   1/1     Running   0          1m
-
 NAME                   READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/demo   1/1     1            1           1m
+deployment.apps/demo   1/1     1            1           39s
 
-NAME                             DESIRED   CURRENT   READY   AGE
-replicaset.apps/demo-bb8fccd6f   1         1         1       1m
+NAME                              DESIRED   CURRENT   READY   AGE
+replicaset.apps/demo-5f9bc4c6c4   1         1         1       39s
+
+NAME                        READY   STATUS    RESTARTS   AGE
+pod/demo-5f9bc4c6c4-dbl7p   1/1     Running   0          39s
 ```
 
 To test that the deployment is working, we need to be able to connect to the application. Normally you would have created a service for the application, as well as exposed it outside of the cluster using an ingress or via a load balancer. Since we haven't done that, we will set up port forwarding to expose the application to the local environment.

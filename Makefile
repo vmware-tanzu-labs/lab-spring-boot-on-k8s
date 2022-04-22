@@ -28,8 +28,8 @@ publish-files:
 
 deploy-workshop:
 	kubectl apply -f resources/workshop.yaml
-	kubectl apply -f resources/training-portal.yaml
-	STATUS=1; ATTEMPTS=0; ROLLOUT_STATUS_CMD="kubectl rollout status deployment/eduk8s-portal -n $(WORKSHOP_NAME)-ui"; until [ $$STATUS -eq 0 ] || $$ROLLOUT_STATUS_CMD || [ $$ATTEMPTS -eq 5 ]; do sleep 5; $$ROLLOUT_STATUS_CMD; STATUS=$$?; ATTEMPTS=$$((attempts + 1)); done
+	kubectl apply -f resources/trainingportal.yaml
+	STATUS=1; ATTEMPTS=0; ROLLOUT_STATUS_CMD="kubectl rollout status deployment/training-portal -n $(WORKSHOP_NAME)-ui"; until [ $$STATUS -eq 0 ] || $$ROLLOUT_STATUS_CMD || [ $$ATTEMPTS -eq 5 ]; do sleep 5; $$ROLLOUT_STATUS_CMD; STATUS=$$?; ATTEMPTS=$$((attempts + 1)); done
 
 # Use the "update-workshop" target yo update the workshop definition. When the
 # training portal is configured to detect changes to the workshop definition
@@ -44,11 +44,11 @@ update-workshop:
 # finished before returning.
 
 delete-workshop:
-	kubectl delete -f resources/training-portal.yaml --cascade=foreground
+	kubectl delete -f resources/trainingportal.yaml --cascade=foreground
 	kubectl delete -f resources/workshop.yaml
 
 # Use the "open-workshop" target to open a web browser on the training portal
 # which provides access to the workshop.
 
 open-workshop:
-	URL=`kubectl get trainingportal/$(WORKSHOP_NAME) -o go-template={{.status.eduk8s.url}}`; (test -x /usr/bin/xdg-open && xdg-open $$URL) || (test -x /usr/bin/open && open $$URL) || true
+	URL=`kubectl get trainingportal/$(WORKSHOP_NAME) -o go-template={{.status.educates.url}}`; (test -x /usr/bin/xdg-open && xdg-open $$URL) || (test -x /usr/bin/open && open $$URL) || true

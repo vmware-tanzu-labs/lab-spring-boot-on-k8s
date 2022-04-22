@@ -2,7 +2,7 @@
 # image which incorporates additional application binaries or tools. Select
 # the appropriate Educates workshop base image in the `FROM` line.
 
-FROM quay.io/eduk8s/jdk11-environment:master
+FROM ghcr.io/vmware-tanzu-labs/educates-jdk11-environment:develop
 
 # Include here any steps to build your custom workshop base image. See the
 # documentation on best practices for building a custom workshop base image.
@@ -13,6 +13,6 @@ FROM quay.io/eduk8s/jdk11-environment:master
 # into the custom workshop base image, rather than workshop content files
 # being published using a separate OCI image artefact or other mechanism.
 
-# COPY --chown=1001:0 . /home/eduk8s/
-# RUN mv /home/eduk8s/workshop /opt/workshop
-# RUN fix-permissions /home/eduk8s
+COPY --chown=1001:0 . /home/eduk8s/
+RUN mv /home/eduk8s/workshop /opt/workshop
+RUN fix-permissions /home/eduk8s

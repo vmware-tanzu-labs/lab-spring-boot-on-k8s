@@ -1,13 +1,22 @@
-apiVersion: training.eduk8s.io/v1alpha2
+apiVersion: training.educates.dev/v1beta1
 kind: Workshop
 metadata:
   name: lab-spring-boot-on-k8s
 spec:
   title: Spring Boot on Kubernetes
   description: Introduction to Spring Boot on Kubernetes
-  content:
+  workshop:
     image: jdk11-environment:*
-    files: imgpkg+http://registry.default.svc.cluster.local:5001/lab-spring-boot-on-k8s-files:latest
+    files:
+    - image:
+        url: $(image_repository)/lab-spring-boot-on-k8s-files:latest
+      includePaths:
+      - /workshop/**
+      - /exercises/**
+      - /README.md
+    - path: .m2
+      image:
+        url: ghcr.io/vmware-tanzu-labs/lab-spring-boot-on-k8s-maven:latest
   session:
     namespaces:
       budget: large
@@ -34,9 +43,6 @@ spec:
       protocol: http
       host: initializr.$(workshop_namespace).svc.cluster.local
       port: 8080
-    env:
-      - name: MAVEN_CACHE_IMAGE
-        value: ghcr.io/vmware-tanzu-labs/lab-spring-boot-on-k8s-maven:latest
   environment:
     objects:
     - apiVersion: apps/v1
@@ -57,7 +63,7 @@ spec:
           spec:
             containers:
             - name: dashboard
-              image: ghcr.io/vmware-tanzu-labs/educates-spring-initializr:main
+              image: ghcr.io/vmware-tanzu-labs/educates-spring-initializr:2.0
               imagePullPolicy: Always
               ports:
               - name: 8080-tcp
