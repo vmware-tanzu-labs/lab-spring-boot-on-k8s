@@ -23,7 +23,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p demo
-          curl --silent --fail https://start.spring.io/starter.tgz -d dependencies=webflux,actuator | tar -C demo -xzvf -
+          curl --silent --fail https://start.spring.io/starter.tgz -d dependencies=webflux,actuator -d javaVersion=17 | tar -C demo -xzvf -
 
       - name: Generate dependencies
         shell: bash
