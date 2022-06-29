@@ -21,13 +21,13 @@ You should see the startup messages for the Spring Boot application.
  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
   '  |____| .__|_| |_|_| |_\__, | / / / /
  =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v2.6.4)
+ :: Spring Boot ::                (v2.7.1)
 
-2022-03-24 06:40:35.540  INFO 1 --- [           main] com.example.demo.DemoApplication         : Starting DemoApplication v0.0.1-SNAPSHOT using Java 11.0.14.1 on 5500d28a78ab with PID 1 (/workspace/BOOT-INF/classes started by cnb in /workspace)
-2022-03-24 06:40:35.544  INFO 1 --- [           main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
-2022-03-24 06:40:36.836  INFO 1 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2022-03-24 06:40:37.295  INFO 1 --- [           main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8080
-2022-03-24 06:40:37.307  INFO 1 --- [           main] com.example.demo.DemoApplication         : Started DemoApplication in 2.236 seconds (JVM running for 2.662)
+2022-06-29 06:35:55.608  INFO 1 --- [           main] com.example.demo.DemoApplication         : Starting DemoApplication v0.0.1-SNAPSHOT using Java 17.0.3.1 on 91d914f953e9 with PID 1 (/workspace/BOOT-INF/classes started by cnb in /workspace)
+2022-06-29 06:35:55.610  INFO 1 --- [           main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2022-06-29 06:35:56.543  INFO 1 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-06-29 06:35:56.849  INFO 1 --- [           main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8080
+2022-06-29 06:35:56.862  INFO 1 --- [           main] com.example.demo.DemoApplication         : Started DemoApplication in 1.506 seconds (JVM running for 1.754)
 ```
 
 To test the application, run:

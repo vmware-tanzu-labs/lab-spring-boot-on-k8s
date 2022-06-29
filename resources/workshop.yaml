@@ -20,6 +20,8 @@ spec:
   session:
     namespaces:
       budget: large
+      security:
+        policy: baseline
     resources:
       memory: 2Gi
     applications:
