@@ -6,7 +6,7 @@ spec:
   title: Spring Boot on Kubernetes
   description: Introduction to Spring Boot on Kubernetes
   workshop:
-    image: jdk11-environment:*
+    image: jdk17-environment:*
     files:
     - image:
         url: $(image_repository)/lab-spring-boot-on-k8s-files:latest
