@@ -14,6 +14,8 @@ name: Initializr
 
 For this workshop environment you must ensure Java 17 is selected under the project metadata on Spring Initializr.
 
+Because of later commands we will run, we also want to generate a Maven project rather Gradle, so click on **Maven** under the **Project** category to select it.
+
 You can leave as is the other defaults for the project metadata as the workshop is scripted to already expect the project name to be `demo`.
 
 Now click on **Add Dependencies**, search for `Spring Reactive Web`{{copy}} and add it.
